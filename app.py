@@ -6,15 +6,15 @@ app = Flask(__name__)
 
 @app.route("/get", methods=['GET'])
 def get_call():
+    print(f"get headers: {dict(request.headers)}")
     return "Hello from GET call"
 
 
 @app.route("/post", methods=['POST'])
 def post_call():
     data = request.json
-    headers = request.headers
     print(f"data: {data}")
-    print(f"headers: {headers.get('Key')}")
+    print(f"post headers: {dict(request.headers)}")
     return "Hello from POST call"
 
 
